@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+// File: src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import { CssBaseline, Box } from '@mui/material';
+import theme from './theme';
+import Navbar from './components/Navbar';
+import ProductList from './components/ProductList';
+import CustomerDashboard from './components/CustomerDashboard';
 
+/**
+ * Main App component
+ * Sets up routing and theme
+ */
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Router>
+                <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+                    <Navbar />
+                    <Box component="main" sx={{ flexGrow: 1, p: 3, bgcolor: 'background.default' }}>
+                        <Routes>
+                            <Route path="/" element={<Navigate to="/products" replace />} />
+                            <Route path="/products" element={<ProductList />} />
+                            <Route path="/dashboard" element={<CustomerDashboard />} />
+                        </Routes>
+                    </Box>
+                </Box>
+            </Router>
+        </ThemeProvider>
+    );
 }
 
 export default App;
