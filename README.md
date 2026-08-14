@@ -17,14 +17,10 @@
 
 <p align="center">
   <img src="assets/images/products_view.png" alt="Product Inventory Management Interface" width="100%" />
-  <br />
-  <em>Figure 1: Real-time inventory table with integrated Sell & Buy operational dialogs and low-stock warning indicators.</em>
 </p>
 
 <p align="center">
   <img src="assets/images/dashboard_view.png" alt="Customer Sales Analytics Dashboard" width="100%" />
-  <br />
-  <em>Figure 2: Customer sales dashboard featuring order filtering, confirmed status breakdowns, and aggregated revenue metrics.</em>
 </p>
 
 ---
