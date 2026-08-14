@@ -186,11 +186,16 @@ npm test -- --watchAll=false
 
 ## Project Documentation
 
-- [**System Architecture & ER Diagrams**](docs/architecture.md) — Structural diagrams, C4 models, and query optimizations.
-- [**REST API Reference**](docs/api.md) — Detailed endpoint documentation with request/response payloads.
-- [**Architectural Decision Records (ADRs)**](docs/decisions.md) — Technical choices and tradeoffs.
-- [**Contributing Guidelines**](CONTRIBUTING.md) — Branching standards and Conventional Commits.
-- [**Changelog**](CHANGELOG.md) — Release notes and version history.
+Explore the complete technical documentation suite in the [**`docs/` directory**](docs/README.md):
+
+- [**System Architecture & ER Diagrams**](docs/architecture.md) — Multi-tier architecture, C4 models, ER diagrams, and sequence flows.
+- [**REST API Reference**](docs/api.md) — Comprehensive endpoint specifications, request/response payloads, and error models.
+- [**Architectural Decision Records (ADRs)**](docs/decisions.md) — Foundational technical decisions and architectural tradeoffs.
+- [**Installation & Setup Guide**](docs/setup.md) — Step-by-step local development setup, database provisioning, and troubleshooting.
+- [**User & Operations Guide**](docs/usage.md) — Point-of-Sale workflows, restocking operations, and customer analytics.
+- [**Developer & Contribution Guide**](docs/development.md) — Coding conventions, layer design patterns, and test execution.
+- [**Contributing Guidelines**](CONTRIBUTING.md) — Branch naming standards, Conventional Commits, and PR requirements.
+- [**Changelog**](CHANGELOG.md) — Semantic version release notes.
 
 ---
 
