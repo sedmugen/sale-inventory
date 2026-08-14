@@ -1,4 +1,3 @@
-// File: src/services/purchaseService.js
 import api from './api';
 
 /**

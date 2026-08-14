@@ -1,10 +1,9 @@
-// File: src/components/common/LoadingSpinner.js
 import React from 'react';
 import { Box, CircularProgress, Typography } from '@mui/material';
 
 /**
- * Loading spinner component
- * Displays centered loading indicator with optional message
+ * Loading spinner with message
+ * Centered spinner for async operations
  */
 const LoadingSpinner = ({ message = 'Loading...' }) => {
     return (
@@ -14,12 +13,12 @@ const LoadingSpinner = ({ message = 'Loading...' }) => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                minHeight: '400px',
+                minHeight: '200px',
                 gap: 2,
             }}
         >
-            <CircularProgress size={48} />
-            <Typography variant="body1" color="text.secondary">
+            <CircularProgress size={40} />
+            <Typography variant="body2" color="text.secondary">
                 {message}
             </Typography>
         </Box>

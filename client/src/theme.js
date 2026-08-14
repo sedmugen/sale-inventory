@@ -1,9 +1,8 @@
-// File: src/theme.js
 import { createTheme } from '@mui/material/styles';
 
 /**
  * Custom MUI theme with professional blue-gray palette
- * Clean, modern design suitable for business applications
+ * Clean, modern design suitable for enterprise business applications
  */
 const theme = createTheme({
     palette: {

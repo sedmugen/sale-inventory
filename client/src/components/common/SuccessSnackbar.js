@@ -1,16 +1,14 @@
-// File: src/components/common/SuccessSnackbar.js
 import React from 'react';
 import { Snackbar, Alert } from '@mui/material';
 
 /**
- * Success snackbar component
- * Displays temporary success notification
+ * Reusable success notification toast
  */
-const SuccessSnackbar = ({ open, message, onClose }) => {
+const SuccessSnackbar = ({ open, message, onClose, duration = 4000 }) => {
     return (
         <Snackbar
             open={open}
-            autoHideDuration={3000}
+            autoHideDuration={duration}
             onClose={onClose}
             anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         >

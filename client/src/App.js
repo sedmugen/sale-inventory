@@ -1,4 +1,3 @@
-// File: src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
@@ -10,7 +9,7 @@ import CustomerDashboard from './components/CustomerDashboard';
 
 /**
  * Main App component
- * Sets up routing and theme
+ * Sets up global theme, layout structure, and route hierarchy
  */
 function App() {
     return (

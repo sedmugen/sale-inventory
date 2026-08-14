@@ -1,4 +1,3 @@
-// File: src/components/CustomerDashboard.js
 import React, { useState, useEffect, useCallback } from 'react';
 import {
     Box,
@@ -17,7 +16,7 @@ import ErrorAlert from './common/ErrorAlert';
 
 /**
  * Customer Sales Dashboard
- * View sales history for a selected customer with filtering
+ * View sales history and aggregated metrics for a selected customer
  */
 const CustomerDashboard = () => {
     const [customers, setCustomers] = useState([]);

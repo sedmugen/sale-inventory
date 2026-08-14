@@ -1,4 +1,3 @@
-// File: src/components/Navbar.js
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -7,7 +6,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 
 /**
  * Navigation bar component
- * Provides navigation between main pages
+ * Provides top-level brand and view navigation
  */
 const Navbar = () => {
     const navigate = useNavigate();

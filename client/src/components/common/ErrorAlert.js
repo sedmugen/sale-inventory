@@ -1,57 +1,63 @@
-// File: src/components/common/ErrorAlert.js
 import React from 'react';
-import { Alert, AlertTitle, Box } from '@mui/material';
+import { Alert, AlertTitle, Box, Collapse, IconButton } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 /**
- * Error alert component
- * Displays error messages with title and optional details
+ * Reusable error alert component
+ * Formats standard error messages and validation error bags
  */
 const ErrorAlert = ({ error, onClose }) => {
-    // Extract error message from different error formats
-    const getErrorMessage = () => {
-        if (typeof error === 'string') {
-            return error;
-        }
-        if (error?.response?.data?.message) {
-            return error.response.data.message;
-        }
-        if (error?.message) {
-            return error.message;
-        }
-        return 'An unexpected error occurred';
-    };
+    if (!error) return null;
 
-    // Extract validation errors if present
-    const getValidationErrors = () => {
-        if (error?.response?.data?.validationErrors) {
-            return error.response.data.validationErrors;
-        }
-        return null;
-    };
+    // Extract error message
+    let message = 'An unexpected error occurred';
+    let details = null;
 
-    const errorMessage = getErrorMessage();
-    const validationErrors = getValidationErrors();
+    if (typeof error === 'string') {
+        message = error;
+    } else if (error.response?.data) {
+        const errorData = error.response.data;
+        message = errorData.message || message;
+
+        // If there are field-specific validation errors
+        if (errorData.validationErrors) {
+            details = Object.entries(errorData.validationErrors).map(([field, msg]) => (
+                <li key={field}>
+                    <strong>{field}:</strong> {msg}
+                </li>
+            ));
+        }
+    } else if (error.message) {
+        message = error.message;
+    }
 
     return (
-        <Box sx={{ mb: 3 }}>
-            <Alert severity="error" onClose={onClose}>
+        <Collapse in={!!error}>
+            <Alert
+                severity="error"
+                sx={{ mb: 2 }}
+                action={
+                    onClose && (
+                        <IconButton
+                            aria-label="close"
+                            color="inherit"
+                            size="small"
+                            onClick={onClose}
+                        >
+                            <CloseIcon fontSize="inherit" />
+                        </IconButton>
+                    )
+                }
+            >
                 <AlertTitle>Error</AlertTitle>
-                {errorMessage}
-
-                {validationErrors && (
-                    <Box sx={{ mt: 1 }}>
-                        <strong>Validation Errors:</strong>
-                        <ul style={{ margin: '8px 0', paddingLeft: '20px' }}>
-                            {Object.entries(validationErrors).map(([field, message]) => (
-                                <li key={field}>
-                                    <strong>{field}:</strong> {message}
-                                </li>
-                            ))}
-                        </ul>
+                {message}
+                {details && (
+                    <Box component="ul" sx={{ mt: 1, mb: 0, pl: 2 }}>
+                        {details}
                     </Box>
                 )}
             </Alert>
-        </Box>
+        </Collapse>
     );
 };
 

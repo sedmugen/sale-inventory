@@ -1,7 +1,19 @@
 package io.saadmughal.saleinventorybackend.config;
 
-import io.saadmughal.saleinventorybackend.entity.*;
-import io.saadmughal.saleinventorybackend.repository.*;
+import io.saadmughal.saleinventorybackend.entity.Customer;
+import io.saadmughal.saleinventorybackend.entity.Product;
+import io.saadmughal.saleinventorybackend.entity.ProductDetail;
+import io.saadmughal.saleinventorybackend.entity.Purchase;
+import io.saadmughal.saleinventorybackend.entity.PurchaseStatus;
+import io.saadmughal.saleinventorybackend.entity.Sale;
+import io.saadmughal.saleinventorybackend.entity.SaleStatus;
+import io.saadmughal.saleinventorybackend.entity.Supplier;
+import io.saadmughal.saleinventorybackend.repository.CustomerRepository;
+import io.saadmughal.saleinventorybackend.repository.ProductDetailRepository;
+import io.saadmughal.saleinventorybackend.repository.ProductRepository;
+import io.saadmughal.saleinventorybackend.repository.PurchaseRepository;
+import io.saadmughal.saleinventorybackend.repository.SaleRepository;
+import io.saadmughal.saleinventorybackend.repository.SupplierRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;

@@ -1,4 +1,3 @@
-// File: src/services/productService.js
 import api from './api';
 
 /**
@@ -47,7 +46,7 @@ const productService = {
     },
 
     /**
-     * Delete product
+     * Delete product (soft delete)
      */
     deleteProduct: async (id) => {
         const response = await api.delete(`/products/${id}`);

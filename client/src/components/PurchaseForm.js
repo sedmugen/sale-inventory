@@ -1,4 +1,3 @@
-// File: src/components/PurchaseForm.js
 import React, { useState, useEffect } from 'react';
 import {
     Dialog,

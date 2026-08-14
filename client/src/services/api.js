@@ -1,4 +1,3 @@
-// File: src/services/api.js
 import axios from 'axios';
 
 /**
@@ -15,41 +14,20 @@ const api = axios.create({
 
 /**
  * Request interceptor
- * Add authorization headers, logging, etc.
+ * Configures authorization headers and request logging
  */
 api.interceptors.request.use(
-    (config) => {
-        // Could add auth token here in future
-        // config.headers.Authorization = `Bearer ${token}`;
-        return config;
-    },
-    (error) => {
-        return Promise.reject(error);
-    }
+    (config) => config,
+    (error) => Promise.reject(error)
 );
 
 /**
  * Response interceptor
- * Handle common errors, transform responses, etc.
+ * Handles and normalizes API error responses
  */
 api.interceptors.response.use(
-    (response) => {
-        return response;
-    },
-    (error) => {
-        // Handle common errors
-        if (error.response) {
-            // Server responded with error
-            console.error('API Error:', error.response.data);
-        } else if (error.request) {
-            // Request made but no response
-            console.error('Network Error:', error.request);
-        } else {
-            // Something else happened
-            console.error('Error:', error.message);
-        }
-        return Promise.reject(error);
-    }
+    (response) => response,
+    (error) => Promise.reject(error)
 );
 
 export default api;
