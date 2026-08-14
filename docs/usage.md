@@ -15,14 +15,7 @@ The application navigation bar provides instant access to the core operational m
 
 ## 2. Product Inventory Management (`/products`)
 
-```
-+-----------------------------------------------------------------------------------------------+
-| Code    | Product Name        | Category    | Brand    | Price  | Stock    | Status | Actions |
-+---------+---------------------+-------------+----------+--------+----------+--------+---------+
-| P-1001  | Wireless Mouse      | Electronics | Logitech | $25.99 | 48 units | Active | Sell Buy|
-| P-1005  | HD Webcam 1080p     | Electronics | Logitech | $65.00 |  3 units | Active | Sell Buy|
-+-----------------------------------------------------------------------------------------------+
-```
+![Product Inventory Screenshot](../assets/images/products_view.png)
 
 ### Key Capabilities:
 1. **Live Keyword Search:** Instant multi-field filtering across product name, SKU code, and category.
@@ -90,20 +83,7 @@ When receiving inbound stock from a supplier:
 
 The Customer Dashboard provides business intelligence and customer purchase histories.
 
-```
-+--------------------------------------------------------------------------------+
-| Select Customer: [ John Doe (john.doe@example.com)                         ▼ ] |
-+--------------------------------------------------------------------------------+
-| [ Total Sales: 5 ]    [ Confirmed Orders: 4 ]    [ Total Revenue: $248.50 ]    |
-+--------------------------------------------------------------------------------+
-| Filter: [ All Statuses | CONFIRMED | CANCELLED ]                               |
-+--------------------------------------------------------------------------------+
-| Date        | Product Code | Product Name       | Qty | Price | Total  | Status|
-+--------------------------------------------------------------------------------+
-| Aug 15 2026 | P-1001       | Wireless Mouse     |  2  | $25.99| $51.98 |CONFIRM|
-| Aug 10 2026 | P-1002       | Mechanical Keyboard|  1  | $89.99| $89.99 |CONFIRM|
-+--------------------------------------------------------------------------------+
-```
+![Customer Dashboard Screenshot](../assets/images/dashboard_view.png)
 
 ### Metrics Computed:
 - **Total Sales:** Count of all customer transactions regardless of status.

@@ -9,36 +9,23 @@
 
 > A full-stack inventory and point-of-sale management system engineered with Spring Boot 3, React 18, and Material-UI featuring atomic transaction synchronization, low-stock threshold alerting, and customer lifetime analytics.
 
----
+<p align="center">
+  <img src="assets/images/banner.png" alt="Sale & Inventory Management System Banner" width="100%" />
+</p>
 
 ## Visuals & Demonstration
 
-```
-+-----------------------------------------------------------------------------------------+
-|                                    APPLICATION DEMO                                     |
-+-----------------------------------------------------------------------------------------+
-|  +-----------------------------------------------------------------------------------+  |
-|  |  Product Inventory                                                                |  |
-|  |  [ Search products by name, code, or category...                               ]  |  |
-|  |  +---------+--------------------+-------------+-------+------------+----------+  |  |
-|  |  | Code    | Product Name       | Category    | Price | Stock      | Status   |  |  |
-|  |  +---------+--------------------+-------------+-------+------------+----------+  |  |
-|  |  | P-1001  | Wireless Mouse     | Electronics | $25.99| 48 units   | Active   |  |  |
-|  |  | P-1002  | Mechanical Keyboard| Electronics | $89.99| 29 units   | Active   |  |  |
-|  |  | P-1005  | Webcam HD          | Electronics | $65.00|  3 units ! | Active   |  |  |
-|  |  +---------+--------------------+-------------+-------+------------+----------+  |  |
-|  +-----------------------------------------------------------------------------------+  |
-|  +-----------------------------------------------------------------------------------+  |
-|  |  Customer Sales Dashboard: John Doe                                               |  |
-|  |  [ Total Sales: 2 ]  [ Confirmed: 2 ]  [ Total Revenue: $89.48 ]                  |  |
-|  +-----------------------------------------------------------------------------------+  |
-+-----------------------------------------------------------------------------------------+
-```
+<p align="center">
+  <img src="assets/images/products_view.png" alt="Product Inventory Management Interface" width="100%" />
+  <br />
+  <em>Figure 1: Real-time inventory table with integrated Sell & Buy operational dialogs and low-stock warning indicators.</em>
+</p>
 
-*Interactive demo previews and UI walkthroughs:*
-- **Product Inventory DataGrid & Action Controls:** [assets/images/](assets/images/)
-- **Customer Sales Analytics & Metrics:** [assets/images/](assets/images/)
-- **Transactional Workflow Recording:** [assets/gifs/](assets/gifs/)
+<p align="center">
+  <img src="assets/images/dashboard_view.png" alt="Customer Sales Analytics Dashboard" width="100%" />
+  <br />
+  <em>Figure 2: Customer sales dashboard featuring order filtering, confirmed status breakdowns, and aggregated revenue metrics.</em>
+</p>
 
 ---
 
