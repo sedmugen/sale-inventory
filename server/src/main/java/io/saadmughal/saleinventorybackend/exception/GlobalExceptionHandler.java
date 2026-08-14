@@ -2,6 +2,7 @@ package io.saadmughal.saleinventorybackend.exception;
 
 import io.saadmughal.saleinventorybackend.dto.response.ErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -16,6 +17,7 @@ import java.util.Map;
  * Centralized exception handling for all controllers
  */
 @RestControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
     /**
@@ -61,6 +63,42 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(SupplierNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleSupplierNotFound(
             SupplierNotFoundException ex, HttpServletRequest request) {
+
+        ErrorResponse error = ErrorResponse.of(
+                HttpStatus.NOT_FOUND.value(),
+                "Not Found",
+                ex.getMessage(),
+                request.getRequestURI()
+        );
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    /**
+     * Handle PurchaseNotFoundException
+     * Returns 404 NOT FOUND
+     */
+    @ExceptionHandler(PurchaseNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handlePurchaseNotFound(
+            PurchaseNotFoundException ex, HttpServletRequest request) {
+
+        ErrorResponse error = ErrorResponse.of(
+                HttpStatus.NOT_FOUND.value(),
+                "Not Found",
+                ex.getMessage(),
+                request.getRequestURI()
+        );
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    /**
+     * Handle SaleNotFoundException
+     * Returns 404 NOT FOUND
+     */
+    @ExceptionHandler(SaleNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleSaleNotFound(
+            SaleNotFoundException ex, HttpServletRequest request) {
 
         ErrorResponse error = ErrorResponse.of(
                 HttpStatus.NOT_FOUND.value(),
@@ -167,9 +205,7 @@ public class GlobalExceptionHandler {
                 request.getRequestURI()
         );
 
-        // Log the full exception for debugging
-        System.err.println("Unexpected error: " + ex.getMessage());
-        ex.printStackTrace();
+        log.error("Unhandled exception processing request to URI [{}]: {}", request.getRequestURI(), ex.getMessage(), ex);
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
     }

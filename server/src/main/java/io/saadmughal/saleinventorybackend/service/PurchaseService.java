@@ -8,6 +8,7 @@ import io.saadmughal.saleinventorybackend.entity.PurchaseStatus;
 import io.saadmughal.saleinventorybackend.entity.Supplier;
 import io.saadmughal.saleinventorybackend.exception.BusinessRuleViolationException;
 import io.saadmughal.saleinventorybackend.exception.ProductNotFoundException;
+import io.saadmughal.saleinventorybackend.exception.PurchaseNotFoundException;
 import io.saadmughal.saleinventorybackend.exception.SupplierNotFoundException;
 import io.saadmughal.saleinventorybackend.repository.ProductRepository;
 import io.saadmughal.saleinventorybackend.repository.PurchaseRepository;
@@ -45,7 +46,7 @@ public class PurchaseService {
     @Transactional(readOnly = true)
     public PurchaseResponseDTO getPurchaseById(Long id) {
         Purchase purchase = purchaseRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Purchase not found with ID: " + id));
+                .orElseThrow(() -> new PurchaseNotFoundException(id));
         return convertToResponseDTO(purchase);
     }
 

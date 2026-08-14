@@ -9,6 +9,7 @@ import io.saadmughal.saleinventorybackend.entity.SaleStatus;
 import io.saadmughal.saleinventorybackend.exception.BusinessRuleViolationException;
 import io.saadmughal.saleinventorybackend.exception.CustomerNotFoundException;
 import io.saadmughal.saleinventorybackend.exception.ProductNotFoundException;
+import io.saadmughal.saleinventorybackend.exception.SaleNotFoundException;
 import io.saadmughal.saleinventorybackend.repository.CustomerRepository;
 import io.saadmughal.saleinventorybackend.repository.ProductRepository;
 import io.saadmughal.saleinventorybackend.repository.SaleRepository;
@@ -45,7 +46,7 @@ public class SaleService {
     @Transactional(readOnly = true)
     public SaleResponseDTO getSaleById(Long id) {
         Sale sale = saleRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Sale not found with ID: " + id));
+                .orElseThrow(() -> new SaleNotFoundException(id));
         return convertToResponseDTO(sale);
     }
 
