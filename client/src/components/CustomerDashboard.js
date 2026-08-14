@@ -108,17 +108,17 @@ const CustomerDashboard = () => {
             },
         },
         {
-            field: 'product.code',
+            field: 'productCode',
             headerName: 'Product Code',
             width: 130,
-            valueGetter: (params) => params.row.product?.code,
+            valueGetter: (params) => params.row.product?.code || '—',
         },
         {
-            field: 'product.name',
+            field: 'productName',
             headerName: 'Product Name',
             flex: 1,
             minWidth: 200,
-            valueGetter: (params) => params.row.product?.name,
+            valueGetter: (params) => params.row.product?.name || '—',
         },
         {
             field: 'quantity',

@@ -59,23 +59,30 @@ const PurchaseForm = ({ open, onClose, product, onSuccess }) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
             ...prev,
-            [name]: name === 'quantity' ? parseInt(value) : parseFloat(value),
+            [name]: name === 'quantity'
+                ? (value === '' ? '' : Math.max(0, parseInt(value, 10) || 0))
+                : name === 'unitCost'
+                ? (value === '' ? '' : Math.max(0, parseFloat(value) || 0))
+                : value,
         }));
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        const numQuantity = parseInt(formData.quantity, 10);
+        const numUnitCost = parseFloat(formData.unitCost);
+
         // Validation
         if (!formData.supplierId) {
             setError('Please select a supplier');
             return;
         }
-        if (formData.quantity < 1) {
+        if (isNaN(numQuantity) || numQuantity < 1) {
             setError('Quantity must be at least 1');
             return;
         }
-        if (formData.unitCost < 0) {
+        if (isNaN(numUnitCost) || numUnitCost < 0) {
             setError('Unit cost must be non-negative');
             return;
         }
@@ -87,8 +94,8 @@ const PurchaseForm = ({ open, onClose, product, onSuccess }) => {
             const purchaseData = {
                 productId: product.id,
                 supplierId: formData.supplierId,
-                quantity: formData.quantity,
-                unitCost: formData.unitCost,
+                quantity: numQuantity,
+                unitCost: numUnitCost,
             };
 
             await purchaseService.createPurchase(purchaseData);
@@ -107,8 +114,10 @@ const PurchaseForm = ({ open, onClose, product, onSuccess }) => {
         }
     };
 
-    const totalCost = (formData.quantity * formData.unitCost).toFixed(2);
-    const newStock = product?.currentStock + formData.quantity;
+    const qty = typeof formData.quantity === 'number' ? formData.quantity : (parseInt(formData.quantity, 10) || 0);
+    const cost = typeof formData.unitCost === 'number' ? formData.unitCost : (parseFloat(formData.unitCost) || 0);
+    const totalCost = (qty * cost).toFixed(2);
+    const newStock = (product?.currentStock || 0) + qty;
 
     return (
         <>
