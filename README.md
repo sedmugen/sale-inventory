@@ -9,18 +9,10 @@
 
 > A full-stack inventory and point-of-sale management system engineered with Spring Boot 3, React 18, and Material-UI featuring atomic transaction synchronization, low-stock threshold alerting, and customer lifetime analytics.
 
-<p align="center">
-  <img src="assets/images/banner.png" alt="Sale & Inventory Management System Banner" width="100%" />
-</p>
-
 ## Visuals & Demonstration
 
 <p align="center">
-  <img src="assets/images/products_view.png" alt="Product Inventory Management Interface" width="100%" />
-</p>
-
-<p align="center">
-  <img src="assets/images/dashboard_view.png" alt="Customer Sales Analytics Dashboard" width="100%" />
+  <img src="assets/images/banner.png" alt="Sale & Inventory Management System" width="100%" />
 </p>
 
 ---
